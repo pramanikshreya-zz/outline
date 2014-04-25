@@ -43,12 +43,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-
-
-
-
 Private Sub Command1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\galopen.jpg")
+Set gallery.Picture = LoadPicture(App.Path & "\images\galopen.jpg")
     
     If Me.WindowState <> vbMinimized Then
         'gallery.Picture.Width = Me.Width
@@ -57,7 +53,7 @@ Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\
 End Sub
 
 Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\galsave.jpg")
+Set gallery.Picture = LoadPicture(App.Path & "\images\galsave.jpg")
     
     If Me.WindowState <> vbMinimized Then
         'gallery.Picture.Width = Me.Width
@@ -66,7 +62,7 @@ Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\
 End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\PhotoGalleryHeader2.jpg")
+Set gallery.Picture = LoadPicture(App.Path & "\images\PhotoGalleryHeader2.jpg")
     'gallery.AutoRedraw=True
     'me.PaintPicture me.Picture,0,0,me.Width,me.Height
     
@@ -76,7 +72,7 @@ Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\
     End If
 End Sub
 Private Sub Command3_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-Set gallery.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\galprint.jpg")
+Set gallery.Picture = LoadPicture(App.Path & "\images\galprint.jpg")
     
     If Me.WindowState <> vbMinimized Then
         'gallery.Picture.Width = Me.Width
