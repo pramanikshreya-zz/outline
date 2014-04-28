@@ -9,6 +9,24 @@ Begin VB.Form afterlog
    ScaleHeight     =   8310
    ScaleWidth      =   15360
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command4 
+      BeginProperty Font 
+         Name            =   "Segoe Print"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   855
+      Left            =   840
+      Picture         =   "Form3.frx":0000
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      Top             =   360
+      Width           =   855
+   End
    Begin VB.CommandButton Command3 
       BackColor       =   &H0080FFFF&
       Caption         =   "VIDEOS"
@@ -70,7 +88,7 @@ Begin VB.Form afterlog
    Begin VB.Image Image1 
       Height          =   8115
       Left            =   120
-      Picture         =   "Form3.frx":0000
+      Picture         =   "Form3.frx":2B83
       Top             =   0
       Width           =   15600
    End
@@ -89,6 +107,14 @@ gallery.Show
 
 End Sub
 
+Private Sub Command2_Click()
+
+End Sub
+
+Private Sub Command4_Click()
+End
+End Sub
+
 Private Sub Form_resize()
 
     Set Image1.Picture = LoadPicture("C:\Users\SHREYA-lappy\Desktop\outline\images\instagram41.jpg")
@@ -100,3 +126,6 @@ Private Sub Form_resize()
 
 End Sub
 
+Private Sub Image1_Click()
+
+End Sub
