@@ -6,6 +6,7 @@ Begin VB.Form login
    ClientLeft      =   60
    ClientTop       =   405
    ClientWidth     =   8115
+   KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    Picture         =   "loginform.frx":0000
    ScaleHeight     =   6630
@@ -161,7 +162,7 @@ StartConn:
         If login.Fields("Password") = Text2.Text Then
             Me.Hide
             afterlog.Show
-            Unload Me
+            Exit Sub
             
         Else
             Label1.Caption = "ERROR: Wrong password! Please check for spelling/capitalization errors."
@@ -180,21 +181,20 @@ End Sub
 
 'CHANGED!!!!!!!!! FROM HERE!!!!!
 
-'Private Sub Form_KeyPress("13")
-
+'Private Sub Form_KeyPress(keyascii As Integer)
 'If keyascii = 13 Then
-'If Text1.DataChanged = True Then
+'If Text1.SetFocus = True Then
 'Text2.SetFocus
 'End If
-'If Text2.DataChanged = True Then
+'If Text2.SetFocus = True Then
 'Text2.SetFocus = False
-'Call Command1_Click
+'call Command1_Click
 'End If
 'End If
-
-
 'End Sub
 
-Private Sub Form_Load()
 
-End Sub
+
+
+
+

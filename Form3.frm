@@ -113,7 +113,6 @@ Attribute VB_Exposed = False
 Private Sub Command1_Click()
 Me.Hide
 gallery.Show
-
 End Sub
 
 Private Sub Command1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -133,8 +132,6 @@ End Sub
 Private Sub Command4_Click()
 End
 End Sub
-
-
 
 Private Sub Form_Load()
 login.Visible = False

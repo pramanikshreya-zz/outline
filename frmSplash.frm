@@ -90,11 +90,14 @@ Attribute VB_Exposed = False
 
 
 
+
+
 Private Sub Timer1_Timer()
 Dim i As Integer
 If ProgressBar1.Value >= ProgressBar1.Max Then
 login.Show
 Unload Me
+Timer1.Enabled = False
 End If
 
 i = ProgressBar1.Value
