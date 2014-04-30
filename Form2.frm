@@ -106,7 +106,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Command1_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Command1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Set gallery.Picture = LoadPicture(App.Path & "\images\galopen.jpg")
     
     If Me.WindowState <> vbMinimized Then
@@ -115,7 +115,7 @@ Set gallery.Picture = LoadPicture(App.Path & "\images\galopen.jpg")
     End If
 End Sub
 
-Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Set gallery.Picture = LoadPicture(App.Path & "\images\galsave.jpg")
     
     If Me.WindowState <> vbMinimized Then
@@ -130,7 +130,11 @@ afterlog.Show
 
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Command4_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Command4. = "Back to previous menu"
+End Sub
+
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Set gallery.Picture = LoadPicture(App.Path & "\images\gallery 2.jpg")
     'gallery.AutoRedraw=True
     'me.PaintPicture me.Picture,0,0,me.Width,me.Height
@@ -140,7 +144,7 @@ Set gallery.Picture = LoadPicture(App.Path & "\images\gallery 2.jpg")
         'gallery.Picture.Height = Me.Height
     End If
 End Sub
-Private Sub Command3_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Command3_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Set gallery.Picture = LoadPicture(App.Path & "\images\galprint.jpg")
     
     If Me.WindowState <> vbMinimized Then

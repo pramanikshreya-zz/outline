@@ -6,6 +6,7 @@ Begin VB.Form afterlog
    ClientTop       =   405
    ClientWidth     =   15360
    LinkTopic       =   "Form3"
+   MouseIcon       =   "Form3.frx":0000
    ScaleHeight     =   8310
    ScaleWidth      =   15360
    StartUpPosition =   3  'Windows Default
@@ -21,7 +22,9 @@ Begin VB.Form afterlog
       EndProperty
       Height          =   855
       Left            =   840
-      Picture         =   "Form3.frx":0000
+      MouseIcon       =   "Form3.frx":058A
+      MousePointer    =   99  'Custom
+      Picture         =   "Form3.frx":0B14
       Style           =   1  'Graphical
       TabIndex        =   3
       Top             =   360
@@ -42,6 +45,8 @@ Begin VB.Form afterlog
       Height          =   855
       Left            =   12240
       MaskColor       =   &H000040C0&
+      MouseIcon       =   "Form3.frx":3697
+      MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   2
       Top             =   4920
@@ -49,7 +54,7 @@ Begin VB.Form afterlog
    End
    Begin VB.CommandButton Command2 
       BackColor       =   &H0080FFFF&
-      Caption         =   "MP3'S"
+      Caption         =   "MUSIC"
       BeginProperty Font 
          Name            =   "Segoe Print"
          Size            =   12
@@ -61,6 +66,8 @@ Begin VB.Form afterlog
       EndProperty
       Height          =   855
       Left            =   6480
+      MouseIcon       =   "Form3.frx":3C21
+      MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   1
       Top             =   4920
@@ -80,6 +87,8 @@ Begin VB.Form afterlog
       EndProperty
       Height          =   855
       Left            =   1800
+      MouseIcon       =   "Form3.frx":41AB
+      MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   0
       Top             =   4920
@@ -88,7 +97,7 @@ Begin VB.Form afterlog
    Begin VB.Image Image1 
       Height          =   8115
       Left            =   120
-      Picture         =   "Form3.frx":2B83
+      Picture         =   "Form3.frx":4735
       Top             =   0
       Width           =   15600
    End
@@ -107,12 +116,28 @@ gallery.Show
 
 End Sub
 
-Private Sub Command2_Click()
+Private Sub Command1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Command1.BackColor = &H80FF&
 
+End Sub
+
+
+
+Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Command2.BackColor = &H80FF&
+End Sub
+Private Sub Command3_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Command3.BackColor = &H80FF&
 End Sub
 
 Private Sub Command4_Click()
 End
+End Sub
+
+
+
+Private Sub Form_Load()
+login.Visible = False
 End Sub
 
 Private Sub Form_resize()
@@ -126,6 +151,10 @@ Private Sub Form_resize()
 
 End Sub
 
-Private Sub Image1_Click()
+Private Sub Image1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Command1.BackColor = &H80FFFF
+Command2.BackColor = &H80FFFF
+Command3.BackColor = &H80FFFF
+
 
 End Sub

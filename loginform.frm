@@ -6,9 +6,8 @@ Begin VB.Form login
    ClientLeft      =   60
    ClientTop       =   405
    ClientWidth     =   8115
-   KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
-   Picture         =   "Form1.frx":0000
+   Picture         =   "loginform.frx":0000
    ScaleHeight     =   6630
    ScaleWidth      =   8115
    StartUpPosition =   3  'Windows Default
@@ -26,7 +25,7 @@ Begin VB.Form login
       EndProperty
       Height          =   495
       Left            =   5160
-      MouseIcon       =   "Form1.frx":4B64
+      MouseIcon       =   "loginform.frx":4B64
       MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   3
@@ -47,7 +46,7 @@ Begin VB.Form login
       EndProperty
       Height          =   495
       Left            =   3240
-      MouseIcon       =   "Form1.frx":50EE
+      MouseIcon       =   "loginform.frx":50EE
       MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   2
@@ -196,3 +195,6 @@ End Sub
 
 'End Sub
 
+Private Sub Form_Load()
+
+End Sub
