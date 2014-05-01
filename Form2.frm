@@ -126,7 +126,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim strpic As String
 Dim conn As New ADODB.Connection
-Dim rs As New ADODB.Recordset
+'Dim rs As New ADODB.Recordset
 'conn.ConnectionString = "Provider=Microsoft.jet.oledb.4.0;data source=" & App.Path & "\db\Database1.mdb;"
 'conn.Open
 
@@ -172,11 +172,14 @@ Set conn = New ADODB.Connection
 Set rs = New ADODB.Recordset
     rs.CursorType = adOpenDynamic
     rs.CursorLocation = adUseClient
-    rs.LockType = adLockOptimistic
-    rs.Open "Select * from Table1 where username='" & login.Text1.Text & "'", conn, rs.CursorType, rs.LockType, adCmdUnknown
+    'rs.LockType = adLockOptimistic
+    rs.Open "Select * from Table1", conn, rs.CursorType, rs.LockType, adCmdUnknown
+    'where username='" & login.Text1.Text & "'",
+    'rs.execute "INSERT INTO Table1" VALUES (value1,value2);
+   'conn.Execute ("insert into " & login.Text1.Text & "(PhotoName, Photopath) values('" & Text1.Text & "','" & File1.Path & "')")
     
  rs.AddNew
- rs!Picture = Text1.Text
+ rs!Path = Text1.Text
  If strpic <> "" Then
  Set picstrm = New ADODB.Stream
  picstrm.Type = adTypeBinary
@@ -210,6 +213,7 @@ End Sub
 Private Sub Command4_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 'Command4.= "Back to previous menu"
 End Sub
+
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Set gallery.Picture = LoadPicture(App.Path & "\images\gallery 2.jpg")
