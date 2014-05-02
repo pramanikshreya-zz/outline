@@ -2,19 +2,18 @@ VERSION 5.00
 Begin VB.Form login 
    BackColor       =   &H00400000&
    Caption         =   "Form1"
-   ClientHeight    =   6630
+   ClientHeight    =   7545
    ClientLeft      =   60
    ClientTop       =   405
-   ClientWidth     =   8115
+   ClientWidth     =   9525
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    Picture         =   "loginform.frx":0000
-   ScaleHeight     =   6630
-   ScaleWidth      =   8115
-   StartUpPosition =   3  'Windows Default
+   ScaleHeight     =   7545
+   ScaleWidth      =   9525
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton Command2 
       BackColor       =   &H80000018&
-      Caption         =   "Cancel"
       BeginProperty Font 
          Name            =   "Comic Sans MS"
          Size            =   15.75
@@ -25,16 +24,17 @@ Begin VB.Form login
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   5160
-      MouseIcon       =   "loginform.frx":4B64
+      Left            =   7200
+      MouseIcon       =   "loginform.frx":8B44
       MousePointer    =   99  'Custom
+      Picture         =   "loginform.frx":90CE
       Style           =   1  'Graphical
       TabIndex        =   3
-      Top             =   4200
-      Width           =   1695
+      Top             =   1800
+      Width           =   375
    End
    Begin VB.CommandButton Command1 
-      BackColor       =   &H80000018&
+      BackColor       =   &H80000016&
       Caption         =   "Submit"
       BeginProperty Font 
          Name            =   "Comic Sans MS"
@@ -46,13 +46,13 @@ Begin VB.Form login
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   3240
-      MouseIcon       =   "loginform.frx":50EE
+      Left            =   4920
+      MouseIcon       =   "loginform.frx":B3D5
       MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   2
-      Top             =   4200
-      Width           =   1695
+      Top             =   4440
+      Width           =   2055
    End
    Begin VB.TextBox Text2 
       BeginProperty Font 
@@ -64,29 +64,50 @@ Begin VB.Form login
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   615
+      Height          =   570
       IMEMode         =   3  'DISABLE
-      Left            =   3480
-      PasswordChar    =   "*"
+      Left            =   3000
       TabIndex        =   1
-      Top             =   2400
-      Width           =   2895
+      Text            =   "password..."
+      Top             =   3360
+      Width           =   3975
    End
    Begin VB.TextBox Text1 
       BeginProperty Font 
          Name            =   "Consolas"
          Size            =   14.25
          Charset         =   0
-         Weight          =   700
+         Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   615
-      Left            =   3480
+      Height          =   570
+      Left            =   3000
       TabIndex        =   0
-      Top             =   1560
-      Width           =   2895
+      Text            =   "Username..."
+      Top             =   2640
+      Width           =   3975
+   End
+   Begin VB.Label Label2 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "Register here!"
+      BeginProperty Font 
+         Name            =   "Lucida Handwriting"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   6120
+      MouseIcon       =   "loginform.frx":B95F
+      MousePointer    =   99  'Custom
+      TabIndex        =   5
+      Top             =   5280
+      Width           =   1575
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
@@ -102,9 +123,9 @@ Begin VB.Form login
          Strikethrough   =   0   'False
       EndProperty
       Height          =   735
-      Left            =   720
+      Left            =   1320
       TabIndex        =   4
-      Top             =   5520
+      Top             =   5760
       Width           =   6855
    End
 End
@@ -179,6 +200,11 @@ Private Sub Command2_Click()
 End
 End Sub
 
+Private Sub Label2_Click()
+Me.Hide
+signup.Show
+End Sub
+
 'CHANGED!!!!!!!!! FROM HERE!!!!!
 
 'Private Sub Form_KeyPress(keyascii As Integer)
@@ -195,6 +221,15 @@ End Sub
 
 
 
+Private Sub Text1_Click()
+Text1.Text = ""
+Text1.SetFocus
+End Sub
 
 
 
+Private Sub Text2_Click()
+Text2.Text = ""
+Text2.PasswordChar = "*"
+Text2.SetFocus
+End Sub

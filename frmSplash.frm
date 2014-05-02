@@ -36,6 +36,24 @@ Begin VB.Form frmSplash
       MousePointer    =   11
       Scrolling       =   1
    End
+   Begin VB.Label Label4 
+      BackColor       =   &H8000000E&
+      Caption         =   $"frmSplash.frx":5F53
+      BeginProperty Font 
+         Name            =   "Arial Narrow"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   4560
+      TabIndex        =   4
+      Top             =   4440
+      Width           =   2415
+   End
    Begin VB.Label Label3 
       Caption         =   "Label3"
       Height          =   855

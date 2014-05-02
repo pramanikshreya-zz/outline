@@ -9,7 +9,7 @@ Begin VB.Form afterlog
    MouseIcon       =   "Form3.frx":0000
    ScaleHeight     =   8310
    ScaleWidth      =   15360
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton Command4 
       BeginProperty Font 
          Name            =   "Segoe Print"
@@ -21,13 +21,13 @@ Begin VB.Form afterlog
          Strikethrough   =   0   'False
       EndProperty
       Height          =   855
-      Left            =   840
+      Left            =   13920
       MouseIcon       =   "Form3.frx":058A
       MousePointer    =   99  'Custom
       Picture         =   "Form3.frx":0B14
       Style           =   1  'Graphical
       TabIndex        =   3
-      Top             =   360
+      Top             =   240
       Width           =   855
    End
    Begin VB.CommandButton Command3 
@@ -121,6 +121,11 @@ Command1.BackColor = &H80FF&
 End Sub
 
 
+
+Private Sub Command2_Click()
+mp3.Show
+Me.Hide
+End Sub
 
 Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Command2.BackColor = &H80FF&

@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form Form1 
+Begin VB.Form mp3 
    Caption         =   "Form1"
    ClientHeight    =   4065
    ClientLeft      =   60
@@ -8,9 +8,9 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   4065
    ScaleWidth      =   10440
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "mp3"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True

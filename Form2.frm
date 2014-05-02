@@ -19,13 +19,12 @@ Begin VB.Form gallery
    Picture         =   "Form2.frx":0000
    ScaleHeight     =   6090
    ScaleWidth      =   13500
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.TextBox Text1 
-      Height          =   540
-      Left            =   5400
+      Height          =   660
+      Left            =   5520
       TabIndex        =   5
-      Text            =   "Text1"
-      Top             =   2880
+      Top             =   3840
       Width           =   2415
    End
    Begin MSComDlg.CommonDialog cd 
@@ -65,12 +64,12 @@ Begin VB.Form gallery
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   915
-      Left            =   8040
+      Height          =   795
+      Left            =   9720
       Style           =   1  'Graphical
       TabIndex        =   2
-      Top             =   3960
-      Width           =   2895
+      Top             =   5280
+      Width           =   2415
    End
    Begin VB.CommandButton Command2 
       BackColor       =   &H00FFFFFF&
@@ -84,12 +83,12 @@ Begin VB.Form gallery
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   915
-      Left            =   8040
+      Height          =   795
+      Left            =   5520
       Style           =   1  'Graphical
       TabIndex        =   1
-      Top             =   2640
-      Width           =   2895
+      Top             =   5280
+      Width           =   2535
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00FFFFFF&
@@ -103,19 +102,19 @@ Begin VB.Form gallery
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   915
-      Left            =   8040
+      Height          =   795
+      Left            =   1560
       Style           =   1  'Graphical
       TabIndex        =   0
-      Top             =   1320
-      Width           =   2895
+      Top             =   5280
+      Width           =   2415
    End
    Begin VB.Image Image1 
       BorderStyle     =   1  'Fixed Single
-      Height          =   2415
-      Left            =   2160
+      Height          =   2775
+      Left            =   5040
       Stretch         =   -1  'True
-      Top             =   1920
+      Top             =   600
       Width           =   3135
    End
 End
@@ -127,7 +126,7 @@ Attribute VB_Exposed = False
 Dim strpic As String
 Dim conn As New ADODB.Connection
 'Dim rs As New ADODB.Recordset
-'conn.ConnectionString = "Provider=Microsoft.jet.oledb.4.0;data source=" & App.Path & "\db\Database1.mdb;"
+'conn.ConnectionString = "Provider=Microsoft.jet.oledb.4.0;data source=" & App.name & "\db\Database1.mdb;"
 'conn.Open
 
 Private Sub Command1_Click()
@@ -142,7 +141,9 @@ Image1.Picture = LoadPicture(.FileName)
 'Image1.Height = 2415
 'Image1.Width = 3255
 End If
-
+'---
+cd.ShowSave
+SavePicture Image1.Picture, cd.FileName
 End With
 End Sub
 
@@ -172,14 +173,15 @@ Set conn = New ADODB.Connection
 Set rs = New ADODB.Recordset
     rs.CursorType = adOpenDynamic
     rs.CursorLocation = adUseClient
-    'rs.LockType = adLockOptimistic
-    rs.Open "Select * from Table1", conn, rs.CursorType, rs.LockType, adCmdUnknown
+    rs.LockType = adLockOptimistic
+    rs.Open "Select * from Table1 where username='" & login.Text1.Text & "'", conn, rs.CursorType, rs.LockType, adCmdUnknown
     'where username='" & login.Text1.Text & "'",
     'rs.execute "INSERT INTO Table1" VALUES (value1,value2);
-   'conn.Execute ("insert into " & login.Text1.Text & "(PhotoName, Photopath) values('" & Text1.Text & "','" & File1.Path & "')")
+   'conn.Execute ("insert into " & login.Text1.Text & "(PhotoName, Photoname) values('" & Text1.Text & "','" & File1.name & "')")
     
  rs.AddNew
- rs!Path = Text1.Text
+ rs!UserName = login.Text1.Text
+ rs!Name = Text1.Text
  If strpic <> "" Then
  Set picstrm = New ADODB.Stream
  picstrm.Type = adTypeBinary
@@ -193,6 +195,11 @@ Set rs = New ADODB.Recordset
  rs.Close
  Set rs = Nothing
  MsgBox "saved"
+ Dim filen As String
+ filen = Text1.Text
+ cd.FileName = App.Path & "\picture\" & filen & ".jpg"
+SavePicture Image1.Picture, cd.FileName
+ 
 End Sub
 
 Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -202,6 +209,37 @@ Set gallery.Picture = LoadPicture(App.Path & "\images\galsave.jpg")
         'gallery.Picture.Width = Me.Width
         'gallery.Picture.Height = Me.Height
     End If
+End Sub
+
+Private Sub Command3_Click()
+StartConn:
+Set conn = New ADODB.Connection
+    conn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\db\database1.mdb;Persist Security Info=False"
+    conn.CursorLocation = adUseClient
+    conn.Open
+    If Not conn.State = adStateOpen Then
+        Select Case MsgBox("There was an error opening the databse! Please exit and restart the program. Alternately, you can try to connect again.", vbCritical + vbApplicationModal + vbRetryCancel + vbDefaultButton1, "Database Error")
+        Case vbRetry
+            GoTo StartConn
+        Case vbCancel
+            End
+        End Select
+    End If
+Set rs = New ADODB.Recordset
+    rs.CursorType = adOpenDynamic
+    rs.CursorLocation = adUseClient
+    rs.LockType = adLockOptimistic
+rs.Open "select * from Table1 where name ='" & Text1.Text & "'", conn, 3, 2
+If Not rs.EOF Then
+Set DataReport1.DataSource = rs
+
+ Dim filen As String
+ filen = Text1.Text
+Set DataReport1.Sections("section1").Controls.Item("pic").Picture = LoadPicture("" & App.Path & "\picture\" & filen & ".jpg")
+DataReport1.Show
+
+
+End If
 End Sub
 
 Private Sub Command4_Click()
@@ -251,3 +289,4 @@ End Sub
 Private Sub Picture1_Click()
 
 End Sub
+
