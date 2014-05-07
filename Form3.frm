@@ -130,6 +130,12 @@ End Sub
 Private Sub Command2_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Command2.BackColor = &H80FF&
 End Sub
+
+Private Sub Command3_Click()
+video.Show
+Me.Hide
+End Sub
+
 Private Sub Command3_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 Command3.BackColor = &H80FF&
 End Sub

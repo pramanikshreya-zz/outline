@@ -7,11 +7,10 @@ Begin VB.Form signup
    ClientWidth     =   9435
    LinkTopic       =   "Form1"
    MouseIcon       =   "signup.frx":0000
-   MousePointer    =   99  'Custom
    Picture         =   "signup.frx":058A
    ScaleHeight     =   7245
    ScaleWidth      =   9435
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.TextBox Text9 
       Alignment       =   2  'Center
       BackColor       =   &H00FFFFFF&
@@ -234,6 +233,15 @@ Begin VB.Form signup
       Width           =   2655
    End
    Begin VB.Label Label1 
+      BeginProperty Font 
+         Name            =   "Segoe Print"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   2040
       TabIndex        =   11
@@ -293,7 +301,8 @@ Set rs = New ADODB.Recordset
  rs.Close
  Set rs = Nothing
  MsgBox "You're signed up!"
- Print "done"
+ Me.Hide
+ login.Show
 End If
 End Sub
 
@@ -301,9 +310,14 @@ Private Sub Command2_Click()
 End
 End Sub
 
+Private Sub Text1_Change()
+Text2.Text = ""
+End Sub
+
 Private Sub Text1_Click()
 Text1.Text = ""
 Text1.SetFocus
+Text2.Text = ""
 End Sub
 
 

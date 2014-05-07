@@ -2,14 +2,14 @@ VERSION 5.00
 Begin VB.Form login 
    BackColor       =   &H00400000&
    Caption         =   "Form1"
-   ClientHeight    =   7545
+   ClientHeight    =   7290
    ClientLeft      =   60
    ClientTop       =   405
    ClientWidth     =   9525
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    Picture         =   "loginform.frx":0000
-   ScaleHeight     =   7545
+   ScaleHeight     =   7290
    ScaleWidth      =   9525
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton Command2 
@@ -25,9 +25,9 @@ Begin VB.Form login
       EndProperty
       Height          =   495
       Left            =   7200
-      MouseIcon       =   "loginform.frx":8B44
+      MouseIcon       =   "loginform.frx":89AF
       MousePointer    =   99  'Custom
-      Picture         =   "loginform.frx":90CE
+      Picture         =   "loginform.frx":8F39
       Style           =   1  'Graphical
       TabIndex        =   3
       Top             =   1800
@@ -47,7 +47,7 @@ Begin VB.Form login
       EndProperty
       Height          =   495
       Left            =   4920
-      MouseIcon       =   "loginform.frx":B3D5
+      MouseIcon       =   "loginform.frx":B240
       MousePointer    =   99  'Custom
       Style           =   1  'Graphical
       TabIndex        =   2
@@ -91,23 +91,23 @@ Begin VB.Form login
    End
    Begin VB.Label Label2 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "Register here!"
+      Caption         =   "Not registered? Register here!"
       BeginProperty Font 
          Name            =   "Lucida Handwriting"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
-         Underline       =   0   'False
+         Underline       =   -1  'True
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   6120
-      MouseIcon       =   "loginform.frx":B95F
+      Left            =   5280
+      MouseIcon       =   "loginform.frx":B7CA
       MousePointer    =   99  'Custom
       TabIndex        =   5
-      Top             =   5280
-      Width           =   1575
+      Top             =   5520
+      Width           =   2775
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
@@ -122,10 +122,10 @@ Begin VB.Form login
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   735
-      Left            =   1320
+      Height          =   375
+      Left            =   1560
       TabIndex        =   4
-      Top             =   5760
+      Top             =   600
       Width           =   6855
    End
 End
@@ -141,12 +141,14 @@ Private Sub Command1_Click()
 'Timer1.Enabled = False
 
 If Text1.Text = "" Then
+Label1.Height = 375
     Label1.Caption = "ERROR: Username cannot be empty!"
     'MessageBar.Visible = True
     Text1.SetFocus
     'Timer1.Enabled = True
     Exit Sub
 ElseIf Text2.Text = "" Then
+Label1.Height = 375
     Label1.Caption = "ERROR: Password cannot be empty!"
     'MessageBar.Visible = True
     Text2.SetFocus
@@ -175,6 +177,7 @@ StartConn:
     
     If login.EOF Then
         Label1.Caption = "ERROR: No such user exists! Please check for spelling errors."
+        Label1.Height = 735
         'MessageBar.Visible = True
         Text1.SetFocus
   
@@ -186,6 +189,7 @@ StartConn:
             Exit Sub
             
         Else
+            Label1.Height = 735
             Label1.Caption = "ERROR: Wrong password! Please check for spelling/capitalization errors."
             'MessageBar.Visible = True
             Text2.SetFocus
@@ -207,17 +211,12 @@ End Sub
 
 'CHANGED!!!!!!!!! FROM HERE!!!!!
 
-'Private Sub Form_KeyPress(keyascii As Integer)
-'If keyascii = 13 Then
-'If Text1.SetFocus = True Then
-'Text2.SetFocus
-'End If
-'If Text2.SetFocus = True Then
-'Text2.SetFocus = False
-'call Command1_Click
-'End If
-'End If
-'End Sub
+Private Sub Text2_KeyPress(a As Integer)
+If a = 13 Then
+Call Command1_Click
+End If
+End Sub
+
 
 
 
@@ -233,3 +232,8 @@ Text2.Text = ""
 Text2.PasswordChar = "*"
 Text2.SetFocus
 End Sub
+'Private Sub Form_Resize()
+ 'Me.PaintPicture Me.Picture, 0, 0, Me.Width, Me.Height
+'End Sub
+
+

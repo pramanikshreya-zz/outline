@@ -19,7 +19,7 @@ Begin VB.Form frmSplash
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VB.Timer Timer1 
-      Interval        =   1
+      Interval        =   50
       Left            =   5280
       Top             =   2760
    End
@@ -50,17 +50,9 @@ Begin VB.Form frmSplash
       EndProperty
       Height          =   735
       Left            =   4560
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   4440
       Width           =   2415
-   End
-   Begin VB.Label Label3 
-      Caption         =   "Label3"
-      Height          =   855
-      Left            =   1800
-      TabIndex        =   3
-      Top             =   1080
-      Width           =   3975
    End
    Begin VB.Label Label2 
       BackColor       =   &H8000000E&
@@ -117,6 +109,14 @@ login.Show
 Unload Me
 Timer1.Enabled = False
 End If
+If ProgressBar1.Value / ProgressBar1.Max = 0.5 Then
+Load login
+Load signup
+Load afterlog
+Load gallery
+Load mp3
+End If
+
 
 i = ProgressBar1.Value
 ProgressBar1.Value = ProgressBar1.Value + 1
@@ -138,7 +138,7 @@ Label1.Caption = "Checking Connectivity..."
 Case 69
 Label1.Caption = "Preparing Accounts Info.."
 Case 95
-Label3.Caption = "Welcome.."
+Label1.Caption = "Welcome.."
 
 End Select
 

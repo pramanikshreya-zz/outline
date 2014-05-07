@@ -51,25 +51,25 @@ Begin {78E93846-85FD-11D0-8487-00A0C90DC8A9} DataReport1
    BeginProperty Section2 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
       _Version        =   393216
       Name            =   "Section1"
-      Object.Height          =   2805
+      Object.Height          =   3825
       NumControls     =   2
       ItemType0       =   7
       BeginProperty Item0 {1C13A8E5-A0B6-11D0-848E-00A0C90DC8A9} 
          _Version        =   393216
          Name            =   "pic"
-         Object.Left            =   720
+         Object.Left            =   576
          Object.Top             =   144
-         Object.Width           =   2010
-         Object.Height          =   2010
+         Object.Width           =   3465
+         Object.Height          =   3300
       EndProperty
       ItemType1       =   4
       BeginProperty Item1 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
          _Version        =   393216
-         Name            =   "Text1"
-         Object.Left            =   3312
+         Name            =   "txtname"
+         Object.Left            =   4176
          Object.Top             =   720
          Object.Width           =   2730
-         Object.Height          =   720
+         Object.Height          =   576
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "Consolas"
             Size            =   14.25
@@ -79,7 +79,9 @@ Begin {78E93846-85FD-11D0-8487-00A0C90DC8A9} DataReport1
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         DataField       =   "path"
+         ForeColor       =   16777215
+         BackColor       =   4194304
+         DataField       =   "name"
          Alignment       =   2
          BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
             Type            =   0
